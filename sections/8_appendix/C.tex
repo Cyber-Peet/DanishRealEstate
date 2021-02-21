@@ -1,0 +1,10 @@
+\subsection*{Appendix C: Training different layers of ResNet50}\label{appendix: C}
+\begin{table}[H]
+\begin{tabular}{ll}
+Trainable layer       & SGD                       \\
+Stage 5, block B and C                         & 35.1\%                    \\ \cline{2-2}
+\multicolumn{1}{l|}{Stage 5, block A, B and C} & \multicolumn{1}{l|}{36\%} \\ \cline{2-2}
+Stage 5 and block C of stage 4                 & 32\%
+\end{tabular}
+\end{table}
+These tests, were created before noticing the problem with the preprocessing function, introduced in \textbf{\textit{Ingwersen}}\autocite{Ingwersen}.

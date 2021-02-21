@@ -1,0 +1,16 @@
+\subsection*{Appendix B: Top performing models in \textbf{\textit{Ingwersen}}\autocite{Ingwersen}}\label{appendix: B}
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}lllllll@{}}
+  \toprule
+  Pretrained   & Architecture  & Test Acc.               & Val. Acc.               & Top-5 Test Acc.         & Top-5 Val. Acc.         \\ \midrule
+  VGG16(fc\_1) & 4096, 2048           & \textbf{0.782 (+ .013)} & 0.773 (+ .013)          & 0.937 (+ .008)          & 0.944 (+ .017)          \\
+  VGG16(fc\_1) & 4096, 3072          & 0.778 (+ .009)          & 0.765 (+ .005)          & 0.943 (+ .014)          & 0.940 (+ .013)          \\
+  VGG16(fc\_1) & 4096, 512           & 0.771 (+ .002)          & \textbf{0.783 (+ .023)} & \textbf{0.945 (+ .016)} & \textbf{0.951 (+ .024)} \\
+  VGG16(fc\_1) & 4096, 128          & 0.775 (+ .006)           & 0.774 (+ .014)          & 0.936 (+ .007)          & 0.944 (+ .017)          \\ \bottomrule
+  \end{tabular}%
+  }
+  \caption{Experimentation with AEs (Places preprocessing), parentheses indicate improvement over baseline}
+  \label{fig:finaltable}
+\end{table}

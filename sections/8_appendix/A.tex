@@ -1,0 +1,24 @@
+\subsection*{Appendix A: Baseline tests from \textbf{\textit{Ingwersen}}\autocite{Ingwersen}}\label{appendix: A}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pictures/plots/resnet50_fc_acc}
+    \caption{Baseline performance of ResNet50}
+    \label{fig:baselineresnet}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pictures/plots/vgg_fc_acc}
+    \caption{Baseline performance of VGG16}
+    \label{fig:baselinevgg}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llllll@{}}
+    \toprule
+    Model              & Preprocessing & Test Acc. & Val. Acc. & Top-5 Test Acc. & Top-5 Val. Acc. \\ \midrule
+    ResNet50 (maxpool) & Places        & 0.6438    & 0.666     & 0.904           & 0.898           \\
+    VGG16 (fc\_1)      & Places        & \textbf{0.769}     & \textbf{0.760}               & \textbf{0.929}           & \textbf{0.927}
+    \end{tabular}%
+    }
+\end{table}

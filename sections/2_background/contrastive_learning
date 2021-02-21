@@ -1,0 +1,32 @@
+\subsection{Contrastive Learning}\label{sec:contrastive}
+For the purpose of finding similarities in rooms, ideas in contrastive learning have been investigated. Contrastive learning introduced two versions, unsupervised and supervised. Both of these versions have interest with regards to the creating a home recommender for home seekers. The unsupervised for the obvious reason that there is a continuous flow of new homes entering the real estate market, and it would be costly to label the new rooms through supervised measures. The supervised model is ideal for fine-tuning the model to improve the feature space similarity.
+
+\subsubsection{Unsupervised Contrastive Learning}
+\textbf{\textit{Chen}}\autocite{chen2020simple} introduces a state of the art unsupervised model implementation, which outperforms all previous unsupervised models by $>$5\% on the ImageNet test set. Results from the article suggests the key to achieve the best model is to use the right augmentation scheme. The best accuracy is obtained by cropping and using color distortion. Fine-tuning is applied after the contrastive learning stage to earn top-1 accuracy similar to the supervised model, and in some of the datasets to outperform the supervised model.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =0.6\textwidth]{pictures/random/simclr}
+    \caption{A simple framework for contrastive learning of visual representation\\
+    Image from: https://arxiv.org/pdf/2002.05709.pdf page. 2}
+    \label{ref:simclr}
+\end{figure}
+Training unsupervised with contrastive learning will profit from not having labels. Two different augmentation schemes, \textit{t} and \textit{t'}, are fed through an encoder network, \textit{f($\cdot$)}, to get two related representations. The projection head, \textit{g($\cdot$)}, and the encoder network are trained by maximising the agreement from the output of the projection head. When training is complete the projection head is discarded. The contrastive loss function will close the gap between the two related representations, while pushing away all other representations.
+\subsubsection{Supervised Contrastive Learning}
+The ideas of supervised contrastive learning was introduced in \textbf{\textit{Chen}}\autocite{chen2020simple}, and supplemented in \textbf{\textit{Khosla}}\autocite{khosla2020supervised} to outperform cross-entropy. The difference between the supervised and the unsupervised versions of the contrastive model, is the availability of labels in the dataset. The labels is used to create positive pairs to the data points that have the same labels, and negative pairs to the data points which does not have the same labels, as shown below, \autoref{ref:supclr}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{pictures/random/supclr}
+    \caption{Supervised contrastive vs unsupervised contrastive\\
+    Image from: https://arxiv.org/pdf/2004.11362.pdf page. 2}
+    \label{ref:supclr}
+\end{figure}
+In practice that means that the supervised model will pull images which have the same room label closer together, while pushing away images of rooms with different labels.
+Like in the unsupervised version, two related representations are created, however multiple possible pairs are present, and not only the one positive pair created from the correlated representation in the unsupervised version.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =0.6\textwidth]{pictures/random/supclrarchitecture}
+    \caption{The 2 stages of supervised contrastive learning\\
+    Image from: https://arxiv.org/pdf/2004.11362.pdf page. 13}
+    \label{ref:supclrarchitecture}
+\end{figure}
+The two stages of classification with supervised contrastive learning, \autoref{ref:supclrarchitecture}. The first stage of the contrastive learning works as described in \hyperref[ref:supclr]{Figure 7}. The second stage of the contrastive classifier is trained with a categorial cross-entropy classifier on top of the encoder network, i.e. without the projection head used when training contrastive.

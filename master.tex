@@ -1,0 +1,119 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+%------------------------------------ PACKAGES -----------------------------------------------
+\usepackage{dikutemplate}
+
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{subcaption}
+\usepackage{subfloat}
+\usepackage{mathtools}
+\usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage{txfonts}
+\usepackage{epigraph}
+
+\let\originalepigraph\epigraph
+\renewcommand\epigraph[2]{\originalepigraph{\textit{#1}}{\textsc{#2}}}
+
+\usepackage{minted}
+
+\usepackage[backend=biber, sorting=none]{biblatex}
+
+\addbibresource{bibliography/citations.bib}
+
+%------------------------------------ FRONTPAGE ----------------------------------------------
+\begin{document}
+	\AddToShipoutPicture*{\BackgroundPic}
+
+	\begin{titlepage}
+		\thispagestyle{empty}
+		\vspace*{5cm}
+		\begin{center}
+			\Huge \textbf{General Domain Neural Networks for Specific Image Similarity Domain} \\
+      \LARGE \textbf{Using the Danish Real Estate dataset } \\
+		\end{center}
+		\vspace*{3.5cm}
+		\begin{flushleft}
+
+			\textbf{Author:}\\
+      Peter Friborg Jacobsen\\
+			wtk866\\
+
+			\vspace{3mm}
+			\textbf{Supervisor:}\\
+			Desmond Elliott\\
+			\vspace{2.7cm}
+			Datalogisk  Institut\\
+			Københavns Universitet\\
+			\vspace{3mm}
+			\today\\
+			%\vspace*{0.5cm}
+
+		\end{flushleft}
+	\end{titlepage}
+
+	\title{}
+	\author{}
+
+	\newpage
+\newpage
+
+%----------------------------------- DOCUMENT HEADERS ----------------------------------------
+% \setAffiliation{University of Copenhagen}
+\setShortAffiliation{General Domain Neural Networks for Specific Image Similarity Domain}
+% \setAssignment{}
+% \setCourse{Bachelors Thesis}
+% \setShortAuthors{GQR701}
+% \setAuthors{Adam Ingwersen}
+
+
+
+%----------------------------------- TEXT ----------------------------------------------------
+%%---- Note: Define Titles/Subtitles inside input-files
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\input{"sections/0_abstract/abstract"}
+
+\newpage
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+\input{"sections/1_introduction/introduction"}
+\section{Background}\label{sec:Background}
+\input{"sections/2_background/neural_networks"}
+\input{"sections/2_background/transfer_learning"}
+\input{"sections/2_background/contrastive_learning"}
+\input{"sections/2_background/similarity"}
+\section{Experimental Setup}\label{ExperimentalSetup}
+\input{"sections/4_data/danish_realestate"}
+\input{"sections/4_data/imagenet"}
+\input{"sections/4_data/efficientnet"}
+\section{Methodology}\label{sec:Methodology}
+\input{"sections/5_method/method"}
+\section{Results} \label{sec:Results}
+\input{"sections/6_results/results"}
+\section{Conclusion}\label{sec:Conclusion}
+\input{"sections/7_conclusion/conclusion"}
+\subsection{Future Work}\label{sec:Future Work}
+\input{"sections/6_future_work/future_work"}
+\newpage\\
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\input{"sections/8_appendix/A"}
+\newpage
+\input{"sections/8_appendix/B"}
+\newpage
+\input{"sections/8_appendix/C"}
+\newpage
+\input{"sections/8_appendix/D"}
+\input{"sections/8_appendix/E"}
+\newpage
+\section*{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\printbibliography[heading=none]\\
+\end{document}
